@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { QrReader } from '../components/QRCode'
+import { QrReaderFromUrl } from '../components/QRCode'
 
 export default function Home() {
   const [data, setData] = useState('No result');
@@ -35,6 +36,20 @@ export default function Home() {
         }}
       />
       <p>{data}</p>
+
+      <QrReaderFromUrl
+        scanDelay={500}
+        onResult={(result, error) => {
+          if (!!result) {
+            setData(result?.text);
+          }
+          console.log(error, result);
+          if (!!error) {
+            console.log(error);
+            // console.info(error);
+          }
+        }}
+      />
     </div>
   )
 }

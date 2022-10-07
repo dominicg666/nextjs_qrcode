@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useCallback } from 'react';
 import { BrowserQRCodeReader } from '@zxing/browser';
 
 
@@ -18,7 +18,6 @@ export const useQrReader = ({
       delayBetweenScanAttempts,
     });
 
-    console.log(isMediaDevicesSupported());
     if (
       !isMediaDevicesSupported() &&
       isValidType(onResult, 'onResult', 'function')
