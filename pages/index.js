@@ -20,6 +20,9 @@ export default function Home() {
             // console.info(error);
           }
         }}
+        constraints={
+          { facingMode: 'user' }
+        }
         style={{ width: '100%' }}
       />
       <p>{data}</p>
