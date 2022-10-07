@@ -20,10 +20,19 @@ export default function Home() {
             // console.info(error);
           }
         }}
+        videoId="video"
+        scanDelay={500}
         constraints={
           { facingMode: 'user' }
         }
-        style={{ width: '100%' }}
+        videoStyle={{
+          width: "200px",
+          height: "200px"
+        }}
+        containerStyle={{
+          width: "200px",
+          height: "200px"
+        }}
       />
       <p>{data}</p>
     </div>
